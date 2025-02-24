@@ -1,0 +1,355 @@
+body {
+    border: 5px solid #ffb3c6;
+    /* Soft pink border */
+    border-radius: 20px;
+    /* Smooth rounded edges */
+    margin: 20px;
+    padding: 20px;
+    font-family: 'Fira Code', monospace;
+    background: linear-gradient(to bottom, #fff0f5, #ffd6e0);
+    /* Light sakura gradient */
+    color: #8b5e83;
+    /* Warm pinkish text color */
+    box-shadow: 0px 0px 20px rgba(255, 182, 193, 0.5);
+    /* Soft glow */
+    transition: background 0.5s ease-in-out;
+    /* Smooth transitions */
+}
+
+/* Optional: Add a subtle hover effect */
+body:hover {
+    background: linear-gradient(to bottom, #ffe4e9, #ffc2d1);
+}
+
+/* Project title color */
+.project {
+    color: #ff4d79;
+    /* Deep sakura pink */
+}
+
+/* Card styling */
+.card {
+    background: linear-gradient(to bottom, #ffe6eb, #ffc2d1);
+    /* Warm sakura gradient */
+    border: 1px solid #ff99b9;
+    /* Soft pink border */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Image inside card */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Card content spacing */
+.card-content {
+    padding: 1.5rem;
+}
+
+/* Card title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4d79;
+    /* Bright pink title */
+}
+
+/* Card text */
+.card-text {
+    color: #b56576;
+    /* Softer pink for readability */
+}
+
+/* Button styling */
+.card-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: medium;
+    text-align: center;
+    background-color: #ff7aa2;
+    /* Sakura pink button */
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.card-button:hover {
+    background-color: #ff4d79;
+    /* Darker pink */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #b74f6f;
+    /* Deep sakura pink */
+    text-shadow: 2px 2px 5px rgba(255, 136, 170, 0.3);
+    /* Soft glow effect */
+}
+
+/* Secondary heading (H2) - Slightly lighter pink */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d16b86;
+    /* Soft pastel pink */
+    text-shadow: 1px 1px 3px rgba(255, 182, 193, 0.4);
+}
+
+/* Subheading (H3) - Even lighter for smooth contrast */
+h3 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #e48b9d;
+    /* Softer pink */
+}
+
+/* Paragraphs - A comfortable, readable soft pink */
+p,
+li,
+a {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #925c6f;
+    /* Muted sakura pink */
+}
+
+/* Highlight text */
+strong {
+    color: #b74f6f;
+    /* Cherry blossom deep pink */
+}
+
+/* Links - Soft pink with hover effect */
+a {
+    color: #ff7aa2;
+    /* Cute sakura pink */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ff4d79;
+    /* Darker pink on hover */
+}
+
+
+
+/* Petal styles */
+.petal {
+    position: absolute;
+    top: -50px;
+    /* Start above the screen */
+    width: 30px;
+    height: 30px;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/027/191/073/small_2x/pixel-art-sakura-flower-icon-png.png');
+    /* Sakura petal image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    z-index: -1;
+
+}
+
+/* Falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.profile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    text-align: left;
+    margin-right: 15px;
+}
+
+/* Profile Container (Top-Left) */
+.profile-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin-top: 10px;
+    background: transparent;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* Profile Picture */
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Name Styling */
+.profile-name {
+    color: #ff7aa2;
+
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+/* Verified Badge */
+.verified-badge {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+/* 🌟 Initial hidden state */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 🔥 Active class to trigger the fade-in */
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.column-label {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff4d79;
+    text-shadow: 1px 1px 3px rgba(255, 136, 170, 0.4);
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ff99b9;
+    display: inline-block;
+    width: fit-content;
+    margin: auto;
+}
+
+/* 🌙 Dark Mode */
+.dark .column-label {
+    color: #ff99b9;
+    border-bottom: 3px solid #ff4d79;
+}
+
+
+/* 🌸 Tech Stack Container */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* 🏷️ Tech Tag Styling */
+.tech-tag {
+    background-color: #ff99b9;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ✨ Tech Tag Hover */
+.tech-tag:hover {
+    background-color: #ff4d79;
+}
+
+/* 🌙 Dark Mode */
+.dark .tech-tag {
+    background-color: #ff4d79;
+}
+
+.dark .tech-tag:hover {
+    background-color: #ff1a5b;
+}
+/* 🌸 Light Mode Styles */
+body {
+    background: linear-gradient(to bottom, #fff0f5, #ffd6e0);
+    color: #8b5e83;
+}
+
+/* 🌸 Contact Form */
+.contact-form {
+    background: linear-gradient(to bottom, #ffe6eb, #ffc2d1);
+    border: 1px solid #ff99b9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 4px 4px 10px rgba(255, 136, 170, 0.3);
+}
+
+/* 🌟 Input Fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff99b9;
+    background-color: white;
+    color: #8b5e83;
+}
+
+/* ✨ Contact Button */
+.contact-button {
+    width: 100%;
+    background-color: #ff7aa2;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-button:hover {
+    background-color: #ff4d79;
+}
+
+/* 📱 Social Links */
+.social-link {
+    background-color: #ff99b9;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+.social-link:hover {
+    background-color: #ff4d79;
+}
+
+

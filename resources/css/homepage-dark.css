@@ -1,0 +1,298 @@
+/* 🌙 Dark Mode - Deep Sakura Night */
+body {
+    border: 5px solid #ff4d79;
+    /* Neon pink border */
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    font-family: 'Fira Code', monospace;
+    background: linear-gradient(to bottom, #1a1a2e, #0f0f1a);
+    /* Dark gradient */
+    color: #f8c8dc;
+    /* Soft pinkish-white text */
+    box-shadow: 0px 0px 20px rgba(255, 77, 121, 0.5);
+    /* Neon glow effect */
+    transition: background 0.5s ease-in-out;
+}
+
+/* Hover Effect */
+body:hover {
+    background: linear-gradient(to bottom, #24243e, #14142b);
+}
+
+/* 🌸 Project Title */
+.project {
+    color: #ff99b9;
+    /* Soft sakura pink */
+}
+
+/* 🏷️ Card Styling */
+.card {
+    background: linear-gradient(to bottom, #2e2e4a, #1a1a2e);
+    border: 1px solid #ff4d79;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* 🖼️ Card Image */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 📑 Card Content */
+.card-content {
+    padding: 1.5rem;
+}
+
+/* 🌟 Card Title */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff4d79;
+}
+
+/* 📝 Card Text */
+.card-text {
+    color: #d16b86;
+}
+
+/* 🎀 Buttons */
+.card-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: medium;
+    text-align: center;
+    background-color: #ff4d79;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+.card-button:hover {
+    background-color: #ff1a5b;
+}
+
+/* ✨ Headers */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4d79;
+    text-shadow: 2px 2px 5px rgba(255, 77, 121, 0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff7aa2;
+    text-shadow: 1px 1px 3px rgba(255, 136, 170, 0.4);
+}
+
+h3 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #ff99b9;
+}
+
+/* 📜 Paragraphs & Text */
+p,
+li,
+a {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d16b86;
+}
+
+/* 🌸 Links */
+a {
+    color: #ff7aa2;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ff1a5b;
+}
+
+/* 🌸 Falling Petals */
+.petal {
+    position: absolute;
+    top: -50px;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/027/191/073/small_2x/pixel-art-sakura-flower-icon-png.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    animation: fall linear infinite;
+    z-index: -1;
+}
+
+/* 🌸 Petal Falling Animation */
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* 🌟 Navigation */
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    text-align: right;
+}
+
+/* 🖼️ Profile Section (Top-Left) */
+.profile-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* 👤 Profile Image */
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ff4d79;
+}
+
+/* 🏷️ Name */
+.profile-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f8c8dc;
+    margin-left: 10px;
+}
+
+/* ✅ Verified Badge */
+.verified-badge {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+
+/* 🌟 Initial hidden state */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 🔥 Active class to trigger the fade-in */
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* 🌸 Tech Stack Container */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* 🏷️ Tech Tag Styling */
+.tech-tag {
+    background-color: #ff99b9;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ✨ Tech Tag Hover */
+.tech-tag:hover {
+    background-color: #ff4d79;
+}
+
+/* 🌙 Dark Mode */
+.dark .tech-tag {
+    background-color: #ff4d79;
+}
+
+.dark .tech-tag:hover {
+    background-color: #ff1a5b;
+}
+
+/* 🌙 Dark Mode Styles */
+body {
+    background: linear-gradient(to bottom, #1a1a2e, #0f0f1a);
+    color: #f8c8dc;
+}
+
+/* 🌙 Contact Form */
+.contact-form {
+    background: linear-gradient(to bottom, #2e2e4a, #1a1a2e);
+    border: 1px solid #ff4d79;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 4px 4px 10px rgba(255, 77, 121, 0.5);
+}
+
+/* 🌟 Input Fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff4d79;
+    background-color: #1a1a2e;
+    color: #f8c8dc;
+}
+
+/* ✨ Contact Button */
+.contact-button {
+    width: 100%;
+    background-color: #ff4d79;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-button:hover {
+    background-color: #ff1a5b;
+}
+
+/* 📱 Social Links */
+.social-link {
+    background-color: #ff4d79;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+.social-link:hover {
+    background-color: #ff1a5b;
+}
