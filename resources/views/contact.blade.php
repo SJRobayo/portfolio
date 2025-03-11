@@ -12,7 +12,7 @@
 </head>
 
 
-<body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-black dark:text-white " id="body">
+<body class="font-sans antialiased " id="body">
     <div class="petal-container"></div>
     <div class="flex flex-col min-h-screen">
         @include('partials.navigator')
@@ -25,7 +25,7 @@
 
         <!-- Theme & Language Buttons (Top Right) -->
         <div class="top-buttons">
-            <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+            {{-- <button id="theme-toggle" onclick="toggleTheme()">🌙</button> --}}
             <button id="lang-toggle" onclick="toggleLanguage()">🌍</button>
         </div>
         <div>
@@ -81,11 +81,25 @@
     }
 
     // Theme Toggle Function
-    function toggleTheme() {
-        const body = document.getElementById('body');
-        body.classList.toggle('dark');
-        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeToggle = document.getElementById("theme-toggle");
+
+        // Check Local Storage for Theme Preference
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+        }
+
+        themeToggle.addEventListener("click", function() {
+            document.body.classList.toggle("light-mode");
+
+            // Store preference in Local Storage
+            if (document.body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+            } else {
+                localStorage.setItem("theme", "dark");
+            }
+        });
+    });
 
     // Language Toggle Function (English <-> Spanish)
     function toggleLanguage() {
@@ -103,24 +117,6 @@
         if (localStorage.getItem("lang")) {
             document.documentElement.lang = localStorage.getItem("lang");
         }
-    });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const contactForm = document.getElementById("contact-form");
-        const formResponse = document.getElementById("form-response");
-
-        contactForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            // Simulate form submission
-            setTimeout(() => {
-                formResponse.textContent = "✅ Your message has been sent successfully!";
-                formResponse.style.color = "#c4a35a";
-
-                // Clear form fields
-                contactForm.reset();
-            }, 1000);
-        });
     });
 
     // Sidebar Toggle Function

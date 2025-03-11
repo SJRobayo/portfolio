@@ -7,7 +7,7 @@ body {
     padding: 20px;
     font-family: 'Garamond', serif;
     /* More readable gothic font */
-    background: #121212;
+    background: #1c1c1c;
     /* Dark but less aggressive */
     color: #b0b0b0;
     /* Softer gray for better contrast */
@@ -626,3 +626,137 @@ footer {
 }
 
 
+/* Light Mode */
+.light-mode {
+    background: #f8f8f8;
+    color: #333;
+    border-color: #c4a35a;
+    box-shadow: 0px 4px 15px rgba(196, 163, 90, 0.5);
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3 {
+    color: #732222;
+    text-shadow: 2px 2px 5px rgba(115, 34, 34, 0.3);
+}
+
+.light-mode p,
+.light-mode li,
+.light-mode a {
+    color: #333;
+}
+
+.light-mode a {
+    color: #732222;
+}
+
+.light-mode a:hover {
+    color: #c4a35a;
+}
+
+/* Cards */
+.light-mode .card {
+    background: #ffffff;
+    border-color: #c4a35a;
+    box-shadow: 0 4px 10px rgba(196, 163, 90, 0.3);
+}
+
+.light-mode .card-title {
+    color: #732222;
+}
+
+.light-mode .card-text {
+    color: #555;
+}
+
+/* Buttons */
+.light-mode .card-button,
+.light-mode .hero button {
+    background-color: #c4a35a;
+    color: #121212;
+    border-color: #732222;
+}
+
+.light-mode .card-button:hover,
+.light-mode .hero button:hover {
+    background-color: #732222;
+    color: white;
+}
+
+/* Navbar */
+.light-mode nav {
+    background: #ffffff;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(196, 163, 90, 0.3);
+}
+
+.light-mode nav ul li a {
+    color: #333;
+}
+
+.light-mode nav ul li a:hover {
+    color: #732222;
+}
+
+/* Sidebar */
+.light-mode .sidebar {
+    background: #ffffff;
+    border-right-color: #c4a35a;
+}
+
+.light-mode .menu-btn {
+    color: #121212;
+}
+
+.light-mode .menu-btn:hover {
+    color: #121212;
+}
+
+.light-mode .sidebar-menu li a {
+    color: #732222;
+}
+
+.light-mode .sidebar-menu li a:hover {
+    color: #c4a35a;
+}
+
+/* Forms */
+.light-mode .contact-form {
+    background: #ffffff;
+    border-color: #c4a35a;
+}
+
+.light-mode .form-group label {
+    color: #732222;
+}
+
+.light-mode .form-group input,
+.light-mode .form-group textarea {
+    background: #ffffff;
+    color: #333;
+    border-color: #c4a35a;
+}
+
+.light-mode .form-group input:focus,
+.light-mode .form-group textarea:focus {
+    border-color: #732222;
+}
+
+/* Footer */
+.light-mode footer {
+    background: #f0f0f0;
+    color: #333;
+    border-top-color: #c4a35a;
+}
+
+
+/* Progress bar */
+
+.light-mode .progress {
+    height: 100%;
+    width: 0%;
+    /* Starts empty, fills with animation */
+    background: #732222;
+    transition: width 1s ease-in-out;
+}

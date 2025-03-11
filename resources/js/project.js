@@ -1,64 +1,55 @@
-// 🌸 Cherry Blossom Petals Animation
-function createPetal() {
-    const petal = document.createElement("div");
-    petal.classList.add("petal");
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
 
-    let size = Math.random() * 20 + 10; /* 10px - 30px */
-    petal.style.width = `${size}px`;
-    petal.style.height = `${size}px`;
-    petal.style.left = Math.random() * window.innerWidth + "px";
-    petal.style.backgroundColor =
-        `rgba(255, ${Math.random() * 150 + 100}, ${Math.random() * 150 + 150}, 0.8)`; /* Random pink shades */
-
-    let duration = Math.random() * 5 + 5; /* 5s - 10s */
-    petal.style.animationDuration = `${duration}s`;
-
-    document.body.appendChild(petal);
-
-    setTimeout(() => {
-        petal.remove();
-    }, duration * 1000);
-}
-
-/* Generate petals every 300ms */
-setInterval(createPetal, 300);
-
-// 🌗 Toggle Theme Function
-function toggleTheme() {
-    const body = document.body;
-    const currentTheme = body.classList.contains('dark') ? 'dark' : 'light';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    body.classList.toggle('dark', newTheme === 'dark');
-    localStorage.setItem('theme', newTheme); // Save preference
-
-    // Switch Stylesheets Dynamically
-    updateStylesheet(newTheme);
-}
-
-// 🎨 Function to Update Stylesheet Based on Theme
-function updateStylesheet(theme) {
-    const lightCSS = document.querySelector('link[href*="homepage.css"]');
-    const darkCSS = document.querySelector('link[href*="homepage-dark.css"]');
-
-    if (theme === 'dark') {
-        if (lightCSS) lightCSS.disabled = true;  // Disable light theme
-        if (darkCSS) darkCSS.disabled = false;   // Enable dark theme
+    // Trigger Progress Bar Animation When Sidebar Opens
+    if (sidebar.classList.contains('active')) {
+        document.querySelectorAll('.progress').forEach(progress => {
+            let percent = progress.getAttribute('data-percent');
+            progress.style.width = percent + "%";
+        });
     } else {
-        if (lightCSS) lightCSS.disabled = false; // Enable light theme
-        if (darkCSS) darkCSS.disabled = true;    // Disable dark theme
+        document.querySelectorAll('.progress').forEach(progress => {
+            progress.style.width = "0%"; // Reset when closed
+        });
     }
 }
 
-// 🔄 Load Saved Theme on Page Load
-document.addEventListener("DOMContentLoaded", function () {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.classList.toggle('dark', savedTheme === 'dark');
+// Theme Toggle Function
+document.addEventListener("DOMContentLoaded", function() {
+    const themeToggle = document.getElementById("theme-toggle");
 
-    updateStylesheet(savedTheme);
+    // Check Local Storage for Theme Preference
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+    }
+
+    themeToggle.addEventListener("click", function() {
+        document.body.classList.toggle("light-mode");
+
+        // Store preference in Local Storage
+        if (document.body.classList.contains("light-mode")) {
+            localStorage.setItem("theme", "light");
+        } else {
+            localStorage.setItem("theme", "dark");
+        }
+    });
 });
 
-// 🎛 Add Click Event Listener to the Toggle Button
-document.querySelector(".theme-toggle").addEventListener("click", toggleTheme);
+// Language Toggle Function (English <-> Spanish)
+function toggleLanguage() {
+    const currentLang = document.documentElement.lang;
+    document.documentElement.lang = currentLang === "en" ? "es" : "en";
+    localStorage.setItem("lang", document.documentElement.lang);
+    alert("Language switched to: " + (document.documentElement.lang === "en" ? "English" : "Español"));
+}
 
-
+// Preserve Theme & Language on Reload
+document.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("theme") === "dark") {
+        document.getElementById("body").classList.add("dark");
+    }
+    if (localStorage.getItem("lang")) {
+        document.documentElement.lang = localStorage.getItem("lang");
+    }
+});

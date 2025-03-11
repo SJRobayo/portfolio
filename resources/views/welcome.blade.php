@@ -8,11 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/homepage.css'])
-
 </head>
 
 
-<body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-black dark:text-white " id="body">
+<body class="font-sans antialiased " id="body">
     <div class="petal-container"></div>
     <div class="flex flex-col min-h-screen">
         @include('partials.navigator')
@@ -25,7 +24,7 @@
 
         <!-- Theme & Language Buttons (Top Right) -->
         <div class="top-buttons">
-            <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+            {{-- <button id="theme-toggle" onclick="toggleTheme()">🌙</button> --}}
             <button id="lang-toggle" onclick="toggleLanguage()">🌍</button>
         </div>
 
@@ -41,7 +40,7 @@
                 </p>
             </div>
             <div class="flex justify-center">
-                <img src="{{ asset('storage/img/shiba.jpg') }}" class="rounded-lg shadow-lg" alt="Profile Image">
+                <img src="{{ asset('storage/img/shiba.png') }}" class="rounded-lg shadow-lg" alt="Profile Image">
             </div>
         </main>
 
@@ -99,7 +98,6 @@
 
 
 <script>
-    
     // Sidebar Toggle Function
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
@@ -119,11 +117,25 @@
     }
 
     // Theme Toggle Function
-    function toggleTheme() {
-        const body = document.getElementById('body');
-        body.classList.toggle('dark');
-        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const themeToggle = document.getElementById("theme-toggle");
+
+        // Check Local Storage for Theme Preference
+        if (localStorage.getItem("theme") === "light") {
+            document.body.classList.add("light-mode");
+        }
+
+        themeToggle.addEventListener("click", function() {
+            document.body.classList.toggle("light-mode");
+
+            // Store preference in Local Storage
+            if (document.body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+            } else {
+                localStorage.setItem("theme", "dark");
+            }
+        });
+    });
 
     // Language Toggle Function (English <-> Spanish)
     function toggleLanguage() {
