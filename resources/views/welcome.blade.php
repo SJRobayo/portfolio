@@ -7,7 +7,7 @@
     <title>Samuel Robayo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/home.js', 'resources/css/homepage.css', 'resources/css/homepage-dark.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/homepage.css'])
 
 </head>
 
@@ -15,35 +15,19 @@
 <body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-black dark:text-white " id="body">
     <div class="petal-container"></div>
     <div class="flex flex-col min-h-screen">
-        <header class="py-6 flex flex-col items-center">
-            {{-- <h1 class="text-4xl font-semibold">Samuel Robayo</h1> --}}
-            <nav class="mt-4 mr-10">
-                <ul class="flex space-x-4 ">
-                    <button class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em"
-                            class="theme-toggle__dark-side" fill="currentColor" viewBox="0 0 32 32">
-                            <path
-                                d="M16 .5C7.4.5.5 7.4.5 16S7.4 31.5 16 31.5 31.5 24.6 31.5 16 24.6.5 16 .5zm0 28.1V3.4C23 3.4 28.6 9 28.6 16S23 28.6 16 28.6z" />
-                        </svg>
-                    </button>
-                    <li><a href="{{ route('home') }}" class="py-2 px-4">Home</a></li>
-                    </li>
-                    <li><a href="{{ route('experience') }}" class="py-2 px-4">Experience</a>
-                    </li>
-                    <li><a href="#" class="py-2 px-4  ">About
-                            me</a></li>
-                    <li><a href="{{ route('contact') }}" class="py-2 px-4 ">Contact
-                            me</a></li>
-                </ul>
-            </nav>
-        </header>
-        <header class="profile-container ml-16">
-            <img src="{{ asset('storage/img/picture.png') }}" alt="Profile Picture" class="profile-img">
-            {{-- <span class="profile-name">Samuel Robayo</span> --}}
-            <a href="#" class="py-2 px-4">Samuel Robayo</a>
+        @include('partials.navigator')
 
-        </header>
+        <!-- Sidebar -->
+        @include('partials.side-bar')
 
+        <!-- Sidebar Toggle Button -->
+        <button id="menu-btn" class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+        <!-- Theme & Language Buttons (Top Right) -->
+        <div class="top-buttons">
+            <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button id="lang-toggle" onclick="toggleLanguage()">🌍</button>
+        </div>
 
         <main class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-6 max-w-4xl mx-auto">
             <div class="text-left">
@@ -57,17 +41,18 @@
                 </p>
             </div>
             <div class="flex justify-center">
-                <img src="{{ asset('storage/img/picture.png') }}" class="rounded-lg shadow-lg" alt="Profile Image">
+                <img src="{{ asset('storage/img/shiba.jpg') }}" class="rounded-lg shadow-lg" alt="Profile Image">
             </div>
         </main>
 
         <h3 class="text-3xl font-semibold mb-4 text-center">My work</h3>
 
 
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-10 max-w-6xl mx-auto">
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 max-w-5xl mx-auto">
             <div class="card" data-id="foodieguard">
-                <a href="{{ route('foodieguard') }}" class="card-link">
-                    <img src="{{ asset('storage/img/logo.png') }}" alt="FoodieGuard Logo" class="card-img">
+                <a href="{{ route('optimal-route-caluclator') }}">
+                    <img src="https://nationwidetraining.com.au/wp-content/uploads/2023/06/Understanding-Transport-Logistics.jpg"
+                        alt="" class="project-picture" />
                 </a>
                 <div class="card-content">
                     <a href="{{ route('foodieguard') }}">
@@ -79,8 +64,9 @@
 
 
             <div class="card">
-                <a href="{{ route('meteorological-predictor') }}">
-                    <img src="{{ asset('storage/img/meteo.png') }}" alt="" />
+                <a href="{{ route('optimal-route-caluclator') }}">
+                    <img src="https://nationwidetraining.com.au/wp-content/uploads/2023/06/Understanding-Transport-Logistics.jpg"
+                        alt="" class="project-picture" />
                 </a>
                 <div class="card-content">
                     <a href="{{ route('meteorological-predictor') }}">
@@ -106,11 +92,56 @@
                 </div>
             </div>
         </section>
-
-        <footer class="py-6 text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>&copy; {{ date('Y') }} Bomboclat - Creado con Laravel</p>
-        </footer>
     </div>
 </body>
 
 </html>
+
+
+<script>
+    
+    // Sidebar Toggle Function
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+
+        // Trigger Progress Bar Animation When Sidebar Opens
+        if (sidebar.classList.contains('active')) {
+            document.querySelectorAll('.progress').forEach(progress => {
+                let percent = progress.getAttribute('data-percent');
+                progress.style.width = percent + "%";
+            });
+        } else {
+            document.querySelectorAll('.progress').forEach(progress => {
+                progress.style.width = "0%"; // Reset when closed
+            });
+        }
+    }
+
+    // Theme Toggle Function
+    function toggleTheme() {
+        const body = document.getElementById('body');
+        body.classList.toggle('dark');
+        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    // Language Toggle Function (English <-> Spanish)
+    function toggleLanguage() {
+        const currentLang = document.documentElement.lang;
+        document.documentElement.lang = currentLang === "en" ? "es" : "en";
+        localStorage.setItem("lang", document.documentElement.lang);
+        alert("Language switched to: " + (document.documentElement.lang === "en" ? "English" : "Español"));
+    }
+
+    // Preserve Theme & Language on Reload
+    document.addEventListener("DOMContentLoaded", function() {
+        if (localStorage.getItem("theme") === "dark") {
+            document.getElementById("body").classList.add("dark");
+        }
+        if (localStorage.getItem("lang")) {
+            document.documentElement.lang = localStorage.getItem("lang");
+        }
+    });
+
+    // Sidebar Toggle Function
+</script>

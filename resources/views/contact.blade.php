@@ -4,66 +4,124 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact Me - Samuel Robayo</title>
+    <title>Samuel Robayo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/home.js', 'resources/css/homepage.css', 'resources/css/homepage-dark.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/homepage.css'])
+
 </head>
 
-<body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-black dark:text-white" id="body">
+
+<body class="font-sans antialiased bg-gray-100 text-gray-900 dark:bg-black dark:text-white " id="body">
     <div class="petal-container"></div>
     <div class="flex flex-col min-h-screen">
-        <!-- Header -->
-        <header class="py-6 flex flex-col items-center">
-            <nav class="mt-4 mr-10">
-                <ul class="flex space-x-4">
-                    <button class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em"
-                            class="theme-toggle__dark-side" fill="currentColor" viewBox="0 0 32 32">
-                            <path
-                                d="M16 .5C7.4.5.5 7.4.5 16S7.4 31.5 16 31.5 31.5 24.6 31.5 16 24.6.5 16 .5zm0 28.1V3.4C23 3.4 28.6 9 28.6 16S23 28.6 16 28.6z" />
-                        </svg>
-                    </button>
-                    <li><a href="{{ route('home') }}" class="py-2 px-4">Home</a></li>
-                    <li><a href="#" class="py-2 px-4">Experience</a></li>
-                    <li><a href="#" class="py-2 px-4">About Me</a></li>
-                    <li><a href="#" class="py-2 px-4 project">Contact Me</a></li>
-                </ul>
-            </nav>
-        </header>
+        @include('partials.navigator')
 
-        <header class="profile-container ml-16">
-            <img src="{{ asset('storage/img/picture.png') }}" alt="Profile Picture" class="profile-img">
-            <a href="#" class="py-2 px-4">Samuel Robayo</a>
-        </header>
+        <!-- Sidebar -->
+        @include('partials.side-bar')
 
-        <!-- Contact Form Section -->
-        <section class="max-w-4xl mx-auto mt-12 p-6">
-            <h2 class="text-4xl font-semibold text-center mb-8 project">Get in Touch</h2>
-            <p class="text-lg text-center text-gray-700 dark:text-gray-300 mb-6">
-                Feel free to reach out! Fill the form below or connect with me on social media.
-            </p>
+        <!-- Sidebar Toggle Button -->
+        <button id="menu-btn" class="menu-btn" onclick="toggleSidebar()">☰</button>
 
-            <form class="contact-form bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                <label class="block mb-4">
-                    <span class="text-gray-700 dark:text-gray-300">Your Name</span>
-                    <input type="text" class="input-field" placeholder="Enter your name">
-                </label>
+        <!-- Theme & Language Buttons (Top Right) -->
+        <div class="top-buttons">
+            <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+            <button id="lang-toggle" onclick="toggleLanguage()">🌍</button>
+        </div>
+        <div>
+            <section class="max-w-4xl mx-auto mt-12 p-6">
+                <h2 class="text-4xl font-semibold text-center mb-6 text-gold">Contact Me</h2>
 
-                <label class="block mb-4">
-                    <span class="text-gray-700 dark:text-gray-300">Your Email</span>
-                    <input type="email" class="input-field" placeholder="Enter your email">
-                </label>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
 
-                <label class="block mb-4">
-                    <span class="text-gray-700 dark:text-gray-300">Message</span>
-                    <textarea class="input-field h-32 resize-none" placeholder="Write your message"></textarea>
-                </label>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
 
-                <button type="submit" class="contact-button">Send Message</button>
-            </form>
-        </section>   
-    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p id="form-response" class="text-center mt-4"></p>
+                </form>
+            </section>
+        </div>
+
+
+
 </body>
 
 </html>
+
+
+<script>
+    // Sidebar Toggle Function
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('active');
+
+        // Trigger Progress Bar Animation When Sidebar Opens
+        if (sidebar.classList.contains('active')) {
+            document.querySelectorAll('.progress').forEach(progress => {
+                let percent = progress.getAttribute('data-percent');
+                progress.style.width = percent + "%";
+            });
+        } else {
+            document.querySelectorAll('.progress').forEach(progress => {
+                progress.style.width = "0%"; // Reset when closed
+            });
+        }
+    }
+
+    // Theme Toggle Function
+    function toggleTheme() {
+        const body = document.getElementById('body');
+        body.classList.toggle('dark');
+        localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    // Language Toggle Function (English <-> Spanish)
+    function toggleLanguage() {
+        const currentLang = document.documentElement.lang;
+        document.documentElement.lang = currentLang === "en" ? "es" : "en";
+        localStorage.setItem("lang", document.documentElement.lang);
+        alert("Language switched to: " + (document.documentElement.lang === "en" ? "English" : "Español"));
+    }
+
+    // Preserve Theme & Language on Reload
+    document.addEventListener("DOMContentLoaded", function() {
+        if (localStorage.getItem("theme") === "dark") {
+            document.getElementById("body").classList.add("dark");
+        }
+        if (localStorage.getItem("lang")) {
+            document.documentElement.lang = localStorage.getItem("lang");
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const contactForm = document.getElementById("contact-form");
+        const formResponse = document.getElementById("form-response");
+
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Simulate form submission
+            setTimeout(() => {
+                formResponse.textContent = "✅ Your message has been sent successfully!";
+                formResponse.style.color = "#c4a35a";
+
+                // Clear form fields
+                contactForm.reset();
+            }, 1000);
+        });
+    });
+
+    // Sidebar Toggle Function
+</script>
