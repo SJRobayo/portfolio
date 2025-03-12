@@ -79,28 +79,6 @@
             });
         }
     }
-
-    // Theme Toggle Function
-    document.addEventListener("DOMContentLoaded", function() {
-        const themeToggle = document.getElementById("theme-toggle");
-
-        // Check Local Storage for Theme Preference
-        if (localStorage.getItem("theme") === "light") {
-            document.body.classList.add("light-mode");
-        }
-
-        themeToggle.addEventListener("click", function() {
-            document.body.classList.toggle("light-mode");
-
-            // Store preference in Local Storage
-            if (document.body.classList.contains("light-mode")) {
-                localStorage.setItem("theme", "light");
-            } else {
-                localStorage.setItem("theme", "dark");
-            }
-        });
-    });
-
     // Language Toggle Function (English <-> Spanish)
     function toggleLanguage() {
         const currentLang = document.documentElement.lang;
