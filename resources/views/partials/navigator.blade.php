@@ -2,7 +2,7 @@
     {{-- <h1 class="text-4xl font-semibold">Samuel Robayo</h1> --}}
     <nav class="mt-4 mr-10">
         <ul class="flex space-x-4 ">
-            <li><a href="{{ route('home') }}" class="py-2 px-4">Home</a></li>
+            <li><a href="{{ route('home') }}" class="py-2 px-4">@lang('portfolio.navigator.home')</a></li>
             </li>
             <li><a href="{{ route('experience') }}" class="py-2 px-4">Experience</a>
             </li>
