@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class LanguageSelector extends Component
@@ -14,13 +15,11 @@ class LanguageSelector extends Component
 
     public function changeLocale($locale)
     {
-        App::setLocale($locale);
-        session(['locale' => $locale]);
-        return redirect()->route('experience');
+        Session::put('locale', $locale);
+
+        // App::setLocale($locale);
+        return redirect()->back();
     }
 
-    public function yourFunction()
-    {
-        dd(1);
-    }
+  
 }
