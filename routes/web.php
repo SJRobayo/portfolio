@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
+use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,3 +39,11 @@ Route::get('about', function () {
     return view('about');
 })->name('about');
 // Route::get('/', Home::class)->name('home');
+
+
+Route::get('change-locale', function ($locale) {
+
+
+    App::setLocale($locale);
+    // return view('welcome');
+})->name('setLanguage');

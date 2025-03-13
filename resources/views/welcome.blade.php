@@ -7,7 +7,10 @@
     <title>Samuel Robayo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/homepage.css'])
+    @bukStyles
 </head>
 
 
@@ -23,10 +26,8 @@
         <button id="menu-btn" class="menu-btn" onclick="toggleSidebar()">☰</button>
 
         <!-- Theme & Language Buttons (Top Right) -->
-        <div class="top-buttons">
-            {{-- <button id="theme-toggle" onclick="toggleTheme()">🌙</button> --}}
-            <button id="lang-toggle" onclick="toggleLanguage()">🌍</button>
-        </div>
+        @livewire('language-selector')
+
 
         <main class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-6 max-w-4xl mx-auto">
             <div class="text-left">
@@ -114,16 +115,6 @@
                 progress.style.width = "0%"; // Reset when closed
             });
         }
-    }
-
-    
-
-    // Language Toggle Function (English <-> Spanish)
-    function toggleLanguage() {
-        const currentLang = document.documentElement.lang;
-        document.documentElement.lang = currentLang === "en" ? "es" : "en";
-        localStorage.setItem("lang", document.documentElement.lang);
-        alert("Language switched to: " + (document.documentElement.lang === "en" ? "English" : "Español"));
     }
 
     // Preserve Theme & Language on Reload

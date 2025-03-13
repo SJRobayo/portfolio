@@ -16,6 +16,7 @@
         @include('partials.navigator')
 
         @include('partials.side-bar')
+        @dump(App::getLocale())
 
         <!-- Sidebar Toggle Button -->
         <button id="menu-btn" class="menu-btn" onclick="toggleSidebar()">☰</button>

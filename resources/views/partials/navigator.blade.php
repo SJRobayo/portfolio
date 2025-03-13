@@ -4,12 +4,14 @@
         <ul class="flex space-x-4 ">
             <li><a href="{{ route('home') }}" class="py-2 px-4">@lang('portfolio.navigator.home')</a></li>
             </li>
-            <li><a href="{{ route('experience') }}" class="py-2 px-4">Experience</a>
+            <li><a href="{{ route('experience') }}" class="py-2 px-4">@lang('portfolio.navigator.experience')</a>
             </li>
-            <li><a href="{{route('about')}}" class="py-2 px-4  ">About
-                    me</a></li>
-            <li><a href="{{ route('contact') }}" class="py-2 px-4 ">Contact
-                    me</a></li>
+            <li><a href="{{ route('about') }}" class="py-2 px-4  ">@lang('portfolio.navigator.about')
+                </a></li>
+            <li><a href="{{ route('contact') }}" class="py-2 px-4 ">@lang('portfolio.navigator.contact')
+                </a></li>
         </ul>
     </nav>
+
+    
 </header>
