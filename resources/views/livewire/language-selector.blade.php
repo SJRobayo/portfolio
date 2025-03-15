@@ -5,15 +5,14 @@
 
         <!-- Menú Desplegable de Idiomas -->
         <div id="lang-menu" class="lang-menu">
-            <button class="lang-option" data-lang="en" wire:click="changeLocale('en')">
+            <button class="lang-option" data-lang="en" wire:click="changeLocale(en)">
                 <x-flag-language-en class="flag" />
             </button>
 
-            <button class="lang-option" wire:click="changeLocale('{{ 'es' }}')">
+            <button class="lang-option" wire:click="changeLocale('es')">
                 <x-flag-language-es class="flag" />
-
             </button>
-            <button class="lang-option" wire:click="changeLocale('{{ 'fr' }}')">
+            <button class="lang-option" wire:click="changeLocale('fr')">
                 <x-flag-language-fr class="flag" />
             </button>
 

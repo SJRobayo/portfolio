@@ -41,9 +41,7 @@ Route::get('about', function () {
 // Route::get('/', Home::class)->name('home');
 
 
-Route::get('change-locale', function ($locale) {
-
-
-    App::setLocale($locale);
-    // return view('welcome');
-})->name('setLanguage');
+Route::get('/lang/{key}', function ($key) {
+    session()->put('locale', $key);
+    return redirect()->back();
+});
