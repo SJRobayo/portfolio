@@ -22,6 +22,7 @@
         <!-- Sidebar -->
         @include('partials.side-bar')
 
+
         <!-- Sidebar Toggle Button -->
         <button id="menu-btn" class="menu-btn" onclick="toggleSidebar()">☰</button>
 

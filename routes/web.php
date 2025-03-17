@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LocalizationController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\App;
@@ -41,7 +42,4 @@ Route::get('about', function () {
 // Route::get('/', Home::class)->name('home');
 
 
-Route::get('/lang/{key}', function ($key) {
-    session()->put('locale', $key);
-    return redirect()->back();
-});
+Route::get('locale/{locale}', [LocalizationController::class, 'setLanguage'])->name('locale');
