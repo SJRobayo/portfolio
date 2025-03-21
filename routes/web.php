@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LocalizationController;
+use App\Livewire\Contact;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\App;
@@ -31,9 +32,7 @@ Route::get('contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('contact', Contact::class)->name('contact');
 
 
 Route::get('about', function () {

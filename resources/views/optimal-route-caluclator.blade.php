@@ -69,13 +69,6 @@
                 </p>
             </div>
         </main>
-
-
-
-
-        <footer class="py-6 text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>&copy; {{ date('Y') }} Bomboclat - Creado con Laravel</p>
-        </footer>
     </div>
 </body>
 

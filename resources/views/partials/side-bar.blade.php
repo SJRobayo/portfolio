@@ -1,47 +1,33 @@
 <div id="sidebar" class="sidebar">
-    <button class="close-btn" onclick="toggleSidebar()">✖</button>
+    <button class="close-btn" onclick="toggleSidebar()">X</button>
 
-    <h3 class="sidebar-title">Tech Stack</h3>
-
-    <!-- Progress Bars -->
-    <div class="skills">
-        <div class="skill">
-            <span>Laravel</span>
-            <div class="progress-bar">
-                <div class="progress" data-percent="90"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <span>Flutter</span>
-            <div class="progress-bar">
-                <div class="progress" data-percent="85"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <span>Python</span>
-            <div class="progress-bar">
-                <div class="progress" data-percent="80"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <span>SQL</span>
-            <div class="progress-bar">
-                <div class="progress" data-percent="75"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <span>Java</span>
-            <div class="progress-bar">
-                <div class="progress" data-percent="85"></div>
-            </div>
+    <!-- Contact Info Section -->
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Contact Info</h3>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:samuel@example.com">samuel.jrobayo@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+1234567890">+34 640 22 82 60</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Barcelona, Spain</p>
         </div>
     </div>
 
-    <!-- Contact Info Section -->
-    <h3 class="sidebar-title">Contact Info</h3>
-    <div class="contact-info">
-        <p><i class="fas fa-envelope"></i> <a href="mailto:samuel@example.com">samuel.jrobayo@gmail.com</a></p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+1234567890">+34 640 22 82 60</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Barcelona, Spain</p>
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Tech Stack</h3>
+        <div class="skills">
+            @foreach ([
+                ['name' => 'Laravel', 'percent' => 90],
+                ['name' => 'Flutter', 'percent' => 85],
+                ['name' => 'Python', 'percent' => 80],
+                ['name' => 'SQL', 'percent' => 75],
+                ['name' => 'Kotlin', 'percent' => 85],
+            ] as $skill)
+                <div class="skill">
+                    <span>{{ $skill['name'] }}</span>
+                    <div class="progress-bar">
+                        <div class="progress" data-percent="{{ $skill['percent'] }}"></div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>

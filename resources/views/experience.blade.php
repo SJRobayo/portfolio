@@ -16,12 +16,9 @@
         @include('partials.navigator')
 
         @include('partials.side-bar')
-        @dump(App::getLocale())
 
-        <!-- Sidebar Toggle Button -->
         <button id="menu-btn" class="menu-btn" onclick="toggleSidebar()">☰</button>
 
-        <!-- Theme & Language Buttons (Top Right) -->
         <div class="top-buttons">
             <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
             <button id="lang-toggle" onclick="toggleLanguage()">🌍</button>
@@ -141,4 +138,3 @@
 
     // Sidebar Toggle Function
 </script>
-

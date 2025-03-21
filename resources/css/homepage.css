@@ -21,7 +21,7 @@ h2,
 h3 {
     font-weight: 700;
     font-family: 'Garamond', serif;
-    color: #c4a35a;
+    color: #C0C0C0;
     /* Muted gold for elegance */
     text-shadow: 2px 2px 5px rgba(196, 163, 90, 0.5);
 }
@@ -49,7 +49,7 @@ a {
 }
 
 a {
-    color: #c4a35a;
+    color: #C0C0C0;
     /* Gold links */
     text-decoration: none;
     font-weight: 600;
@@ -65,10 +65,10 @@ a:hover {
 /* Cards */
 .card {
     background: #181818;
-    border: 1px solid #732222;
+    border: 1px solid #C0C0C0;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(115, 34, 34, 0.3);
+    box-shadow: 0 4px 10px rgba(192, 192, 192, 0.4);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     max-width: 280px;
     margin: auto;
@@ -80,25 +80,46 @@ a:hover {
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(115, 34, 34, 0.5);
+    box-shadow: 0 6px 15px rgba(192, 192, 192, 0.4);
+}
+
+/* Horizontal Card */
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #181818;
+    border: 1px solid #C0C0C0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(192, 192, 192, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 600px;
+    margin: auto;
+    padding: 0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(192, 192, 192, 0.4);
 }
 
 /* Image Container */
 .card-img-container {
-    width: 100%;
-    height: 160px;
+    width: 40%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 8px;
 }
 
 .card-img {
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
+    margin-left: 35px;
 }
 
 .card:hover .card-img {
@@ -107,14 +128,15 @@ a:hover {
 
 /* Card Content */
 .card-content {
-    padding: 15px;
-    text-align: center;
+    width: 60%;
+    padding: 20px;
+    text-align: left;
 }
 
 .card-title {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #c4a35a;
+    color: #C0C0C0;
     /* Gold accent */
     margin-bottom: 8px;
 }
@@ -125,25 +147,6 @@ a:hover {
     margin-bottom: 12px;
 }
 
-/* Button */
-.card-button {
-    display: inline-block;
-    padding: 10px 16px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-align: center;
-    background-color: #732222;
-    color: white;
-    border-radius: 6px;
-    transition: background-color 0.3s ease-in-out;
-    border: 1px solid #c4a35a;
-    text-decoration: none;
-}
-
-.card-button:hover {
-    background-color: #c4a35a;
-    color: #121212;
-}
 
 
 /* Navbar */
@@ -172,7 +175,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #c4a35a;
+    color: #C0C0C0;
 }
 
 /* Hero Section */
@@ -187,7 +190,7 @@ nav ul li a:hover {
 .hero button {
     padding: 12px 24px;
     background: #732222;
-    border: 1px solid #c4a35a;
+    border: 1px solid #C0C0C0;
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -195,7 +198,7 @@ nav ul li a:hover {
 }
 
 .hero button:hover {
-    background: #c4a35a;
+    background: #C0C0C0;
     color: #121212;
 }
 
@@ -247,7 +250,7 @@ nav ul li a:hover {
 
 .form-group label {
     display: block;
-    color: #c4a35a;
+    color: #C0C0C0;
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
@@ -266,7 +269,7 @@ nav ul li a:hover {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #c4a35a;
+    border-color: #C0C0C0;
     outline: none;
 }
 
@@ -285,7 +288,7 @@ nav ul li a:hover {
 }
 
 .submit-btn:hover {
-    background: #c4a35a;
+    background: #C0C0C0;
     color: #121212;
 }
 
@@ -345,7 +348,7 @@ footer {
 }
 
 .sidebar-menu li a {
-    color: #c4a35a;
+    color: #C0C0C0;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
@@ -358,7 +361,7 @@ footer {
 
 /* Sidebar Title */
 .sidebar-title {
-    color: #c4a35a;
+    color: #C0C0C0;
     text-align: center;
     font-size: 1.3rem;
     font-weight: bold;
@@ -377,7 +380,7 @@ footer {
 
 .skill span {
     display: block;
-    color: #c4a35a;
+    color: #C0C0C0;
     font-size: 1rem;
     margin-bottom: 5px;
 }
@@ -396,7 +399,7 @@ footer {
     height: 100%;
     width: 0%;
     /* Starts empty, fills with animation */
-    background: #c4a35a;
+    background: #C0C0C0;
     transition: width 1s ease-in-out;
 }
 
@@ -409,7 +412,7 @@ footer {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #c4a35a;
+    color: #C0C0C0;
     cursor: pointer;
 }
 
@@ -428,7 +431,7 @@ footer {
 }
 
 .menu-btn:hover {
-    background: #c4a35a;
+    background: #C0C0C0;
     color: #121212;
 }
 
@@ -457,14 +460,14 @@ footer {
 
 #theme-toggle:hover,
 #lang-toggle:hover {
-    background: #c4a35a;
+    background: #C0C0C0;
     color: #121212;
 }
 
 
 /* Colors */
 .text-gold {
-    color: #c4a35a;
+    color: #C0C0C0;
 }
 
 
@@ -475,7 +478,7 @@ footer {
     border: 1px solid #732222;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(115, 34, 34, 0.4);
+    box-shadow: 0 4px 10px rgba(192, 192, 192, 0.4);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -486,7 +489,7 @@ footer {
 
 /* Timeline Line */
 .bg-gold {
-    background: #c4a35a;
+    background: #C0C0C0;
 }
 
 /* Tech Stack Tags */
@@ -504,12 +507,12 @@ footer {
     font-size: 0.85rem;
     font-weight: bold;
     border-radius: 5px;
-    border: 1px solid #c4a35a;
+    border: 1px solid #C0C0C0;
     transition: background 0.3s;
 }
 
 .tech-tag:hover {
-    background: #c4a35a;
+    background: #C0C0C0;
     color: #121212;
 }
 
@@ -522,7 +525,7 @@ footer {
 
 /* Gothic Colors */
 .text-gold {
-    color: #c4a35a;
+    color: #C0C0C0;
 }
 
 .text-burgundy {
@@ -585,7 +588,7 @@ footer {
 
 .value-card i {
     font-size: 2rem;
-    color: #c4a35a;
+    color: #C0C0C0;
 }
 
 /* Hobbies Section */
@@ -605,7 +608,7 @@ footer {
 
 .hobby-card i {
     font-size: 2rem;
-    color: #c4a35a;
+    color: #C0C0C0;
 }
 
 /* Responsive Design */
@@ -625,138 +628,3 @@ footer {
     }
 }
 
-
-/* Light Mode */
-.light-mode {
-    background: #f8f8f8;
-    color: #333;
-    border-color: #c4a35a;
-    box-shadow: 0px 4px 15px rgba(196, 163, 90, 0.5);
-}
-
-.light-mode h1,
-.light-mode h2,
-.light-mode h3 {
-    color: #732222;
-    text-shadow: 2px 2px 5px rgba(115, 34, 34, 0.3);
-}
-
-.light-mode p,
-.light-mode li,
-.light-mode a {
-    color: #333;
-}
-
-.light-mode a {
-    color: #732222;
-}
-
-.light-mode a:hover {
-    color: #c4a35a;
-}
-
-/* Cards */
-.light-mode .card {
-    background: #ffffff;
-    border-color: #c4a35a;
-    box-shadow: 0 4px 10px rgba(196, 163, 90, 0.3);
-}
-
-.light-mode .card-title {
-    color: #732222;
-}
-
-.light-mode .card-text {
-    color: #555;
-}
-
-/* Buttons */
-.light-mode .card-button,
-.light-mode .hero button {
-    background-color: #c4a35a;
-    color: #121212;
-    border-color: #732222;
-}
-
-.light-mode .card-button:hover,
-.light-mode .hero button:hover {
-    background-color: #732222;
-    color: white;
-}
-
-/* Navbar */
-.light-mode nav {
-    background: #ffffff;
-    color: #333;
-    box-shadow: 0 4px 10px rgba(196, 163, 90, 0.3);
-}
-
-.light-mode nav ul li a {
-    color: #333;
-}
-
-.light-mode nav ul li a:hover {
-    color: #732222;
-}
-
-/* Sidebar */
-.light-mode .sidebar {
-    background: #ffffff;
-    border-right-color: #c4a35a;
-}
-
-.light-mode .menu-btn {
-    color: #121212;
-}
-
-.light-mode .menu-btn:hover {
-    color: #121212;
-}
-
-.light-mode .sidebar-menu li a {
-    color: #732222;
-}
-
-.light-mode .sidebar-menu li a:hover {
-    color: #c4a35a;
-}
-
-/* Forms */
-.light-mode .contact-form {
-    background: #ffffff;
-    border-color: #c4a35a;
-}
-
-.light-mode .form-group label {
-    color: #732222;
-}
-
-.light-mode .form-group input,
-.light-mode .form-group textarea {
-    background: #ffffff;
-    color: #333;
-    border-color: #c4a35a;
-}
-
-.light-mode .form-group input:focus,
-.light-mode .form-group textarea:focus {
-    border-color: #732222;
-}
-
-/* Footer */
-.light-mode footer {
-    background: #f0f0f0;
-    color: #333;
-    border-top-color: #c4a35a;
-}
-
-
-/* Progress bar */
-
-.light-mode .progress {
-    height: 100%;
-    width: 0%;
-    /* Starts empty, fills with animation */
-    background: #732222;
-    transition: width 1s ease-in-out;
-}

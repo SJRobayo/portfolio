@@ -46,52 +46,28 @@
             </div>
         </main>
 
-        <h3 class="text-3xl font-semibold mb-4 text-center">My work</h3>
+        <h3 class="text-3xl font-semibold mb-4 text-center">My work & projects</h3>
 
 
         <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 max-w-5xl mx-auto">
-            <div class="card" data-id="foodieguard">
-                <a href="{{ route('optimal-route-caluclator') }}">
-                    <img src="https://nationwidetraining.com.au/wp-content/uploads/2023/06/Understanding-Transport-Logistics.jpg"
-                        alt="" class="project-picture" />
-                </a>
-                <div class="card-content">
-                    <a href="{{ route('foodieguard') }}">
-                        <h5 class="card-title">FoodieGuard</h5>
-                    </a>
-                    <p class="card-text">An app made for finding restaurants based on your alimentary requirements.</p>
-                </div>
-            </div>
+            @include('partials.card-component', [
+                'route' => 'foodieguard',
+                'image' => 'storage/img/foodieguard.png',
+                'title' => 'FoodieGuard',
+                'description' => 'An app made for finding restaurants based on your alimentary requirements.',
+            ]) @include('partials.card-component', [
+                'route' => 'foodieguard',
+                'image' => 'storage/img/strategying_logo.png',
+                'title' => 'FoodieGuard',
+                'description' => 'An app made for finding restaurants based on your alimentary requirements.',
+            ]) @include('partials.card-component', [
+                'route' => 'foodieguard',
+                'image' => 'storage/img/foodieguard.png',
+                'title' => 'FoodieGuard',
+                'description' => 'An app made for finding restaurants based on your alimentary requirements.',
+            ])
 
 
-            <div class="card">
-                <a href="{{ route('optimal-route-caluclator') }}">
-                    <img src="https://nationwidetraining.com.au/wp-content/uploads/2023/06/Understanding-Transport-Logistics.jpg"
-                        alt="" class="project-picture" />
-                </a>
-                <div class="card-content">
-                    <a href="{{ route('meteorological-predictor') }}">
-                        <h5 class="card-title">Meteorological predictor model</h5>
-                    </a>
-                    <p class="card-text">An application to classify the Meteorological status based on an SVM model</p>
-
-                </div>
-            </div>
-
-            <div class="card">
-                <a href="{{ route('optimal-route-caluclator') }}">
-                    <img src="https://nationwidetraining.com.au/wp-content/uploads/2023/06/Understanding-Transport-Logistics.jpg"
-                        alt="" class="project-picture" />
-                </a>
-                <div class="card-content">
-                    <a href="{{ route('optimal-route-caluclator') }}">
-                        <h5 class="card-title">Optimal route calculator</h5>
-                    </a>
-                    <p class="card-text">An application to optimize routes for expiring products implemented through AI
-                        and Dijkstra algorithm</p>
-
-                </div>
-            </div>
         </section>
     </div>
 </body>
